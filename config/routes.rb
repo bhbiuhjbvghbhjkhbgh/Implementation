@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  devise_for :customers
+  namespace :admin do
+    get 'customers/index'
+    get 'customers/show'
+    get 'customers/edit'
+  end
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/edit'
+  end
+  namespace :admin do
+    get 'homes/top'
+  end
   namespace :public do
     get 'shipping_address/index'
     get 'shipping_address/edit'
