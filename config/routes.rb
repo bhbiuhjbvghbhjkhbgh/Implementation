@@ -8,7 +8,7 @@ Rails.application.routes.draw do
      resources :genres
    end
    namespace :admin do
-     get 'admin' => 'homes#top'
+     get '/' => 'homes#top'
    end
   namespace :public do
     resources :shipping_address
