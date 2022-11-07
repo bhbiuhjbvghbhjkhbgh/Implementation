@@ -1,2 +1,33 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-4">
+            <%= button_to "新規登録", {controller: "items", action: "new"}, {method: :get } %>
+        </div>
+        <div class = "col-md-8">
+            <table class = "table table-hover table-inverse">
+              <thead>
+                  <tr>
+                      <th>商品名</th>
+                      <th>紹介文</th>
+                      <th>価格</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <% @items.each do |f| %>
+                    <tr>
+                        <td>
+                            <%= f.name %>
+                        </td>
+                        <td>
+                            <%= f.introduction %>
+                        </td>
+                        <td>
+                            <%= f.price %>
+                        </td>
+                    </tr>
+                  <% end %>
+              </tbody>
+            </table>
+        </div>
+    </div>
+</div>

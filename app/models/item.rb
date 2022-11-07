@@ -3,5 +3,5 @@ class Item < ApplicationRecord
   has_many :customers, through: :cart_items
   has_many :order_details, dependent: :destroy
   has_many :orders, through: :order_details
-  belongs_to :genre
+  belongs_to :genre, optional:true
 end
