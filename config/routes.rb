@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :customers
+
+   resources :admins
    namespace :admin do
     resources :items
    end
@@ -16,6 +18,9 @@ Rails.application.routes.draw do
    namespace :admin do
      get '/' => 'homes#top'
    end
+  namespace :public do
+    get '/' => 'homes#top'
+  end
   namespace :public do
     resources :shipping_address
   end

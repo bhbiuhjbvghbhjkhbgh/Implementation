@@ -1,1 +1,22 @@
-<h1>注文履歴詳細ページ</h1>
+<h1>注文履歴詳細一覧</h1>
+<table class = "table table-hover table-inverse">
+    <thead>
+        <tr>
+            <th>価格</th>
+            <th>数量</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @order_details.each do |f| %>
+        <tr>
+            <td>
+                <%= f.price %>
+            </td>
+            <td>
+                <%= f.amount %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
