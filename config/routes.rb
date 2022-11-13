@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :controllers
+  devise_for :customers, controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
   devise_for :admins
-  devise_for :customers
+
 
    resources :admins
    namespace :admin do

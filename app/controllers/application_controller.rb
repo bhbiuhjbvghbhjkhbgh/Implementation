@@ -4,13 +4,13 @@ class ApplicationController < ActionController::Base
     if resource.is_a?(Admin)
        admin_path
     else
-       public_path
+        public_customer_path(current_customer.id)
     end
 
   end
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
 end
