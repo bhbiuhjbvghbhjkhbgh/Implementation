@@ -4,9 +4,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
+    @customer =  Customer.find(params[:id])
   end
 
   def update
+    @customer =  Customer.find(params[:id])
+    @customer.update(customer_params)
+    redirect_to public_customer_path
   end
 
   private
