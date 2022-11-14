@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 }
   devise_for :admins
 
-  root to: 'homes#top'
+
+
+  get 'public/customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
+  patch 'public/customers/:id/withdraw' => 'public/customers#withdraw', as: 'withdraw'
 
 
    resources :admins
@@ -49,4 +52,5 @@ Rails.application.routes.draw do
     resources :items
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root to: 'public/homes#top'
 end
