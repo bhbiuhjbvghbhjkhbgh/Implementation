@@ -45,9 +45,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :homes
   end
-  namespace :public do
-    resources :item
-  end
+
   namespace :public do
     resources :items
   end

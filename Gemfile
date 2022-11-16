@@ -59,3 +59,5 @@ gem 'devise'
 gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+gem 'pry-byebug', group: :development
+

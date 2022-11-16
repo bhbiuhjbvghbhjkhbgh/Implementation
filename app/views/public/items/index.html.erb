@@ -16,7 +16,7 @@
                   <% @items.each do |f| %>
                     <tr>
                         <td>
-                          <%= link_to public_customer_path(f) do %>
+                          <%= link_to public_item_path(f) do %>
                             <% if f.image.attached? %>
                               <%= image_tag f.image, size: "200x200" %>
                             <% else %>
