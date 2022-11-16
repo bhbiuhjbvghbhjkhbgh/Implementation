@@ -11,6 +11,13 @@
               <tbody>
                     <tr>
                         <td>
+                          <% if f.image.attached? %>
+                            <%= image_tag f.image, size: "200x200" %>
+                          <% else %>
+                            <%= image_tag 'no_image', size: "200x200" %>
+                          <% end %>
+                        </td>
+                        <td>
                           <div class = "d-flex align-items-center justify-content-center">
                             <%= @item.name %>
                           </div>
