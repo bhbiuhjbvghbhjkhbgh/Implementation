@@ -11,8 +11,8 @@
               <tbody>
                     <tr>
                         <td>
-                          <% if f.image.attached? %>
-                            <%= image_tag f.image, size: "200x200" %>
+                          <% if @item.image.attached? %>
+                            <%= image_tag @item.image, size: "200x200" %>
                           <% else %>
                             <%= image_tag 'no_image', size: "200x200" %>
                           <% end %>

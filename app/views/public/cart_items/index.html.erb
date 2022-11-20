@@ -6,15 +6,17 @@
                       <th>商品名</th>
                       <th>紹介文</th>
                       <th>単価(税込)</th>
+                       <th>小計</th>
                   </tr>
+
               </thead>
               <tbody>
-                  <% @items.each do |f| %>
+                  <% @cart_items.each do |f| %>
                     <tr>
                         <td>
-                          <%= link_to public_item_path(f) do %>
-                            <% if f.image.attached? %>
-                              <%= image_tag f.image, size: "200x200" %>
+                          <%= link_to public_item_path(f.item) do %>
+                            <% if f.item.image.attached? %>
+                              <%= image_tag f.item.image, size: "200x200" %>
                             <% else %>
                               <%= image_tag 'no_image', size: "200x200" %>
                             <% end %>
@@ -22,35 +24,35 @@
                         </td>
                         <td>
                           <div class = "d-flex align-items-center justify-content-center">
-                            <%= f.name %>
-                          </end>
-                        </td>
-                        <td>
-                          <div class = "d-flex align-items-center justify-content-center">
-                            <%= f.introduction %>
+                            <%= f.item.name %>
                           </div>
                         </td>
                         <td>
                           <div class = "d-flex align-items-center justify-content-center">
-                            <%= f.with_tax_price %>
+                            <%= f.item.introduction %>
                           </div>
+                        </td>
+                        <td>
+                          <div class = "d-flex align-items-center justify-content-center">
+                            <%= f.item.with_tax_price %>
+                          </div>
+                        </td>
+                        <td>
+                          <%= f.subtotal %>
+                        </td>
+                        <td>
+                          <%= link_to 'キャンセル', public_cart_items_path(f), method: :delete %>
                         </td>
                     </tr>
                   <% end %>
+                  <tr>
+                    <td>
+                      <h4>合計金額</h4>
+                      ¥<%= @total.round.to_s(:delimited) %>
+                    </td>
+                  </tr>
+
               </tbody>
             </table>
-            <table>
-             <thead>
-              <tr>
-               <th>小計</th>
-              </tr>
-             </thead>
-             <tbody>
-              <% @cart_items.each do |f| %>
-                <tr>
-                 <td><%= f.subtotal %></td>
-                 <td><% @total +=  f.subtotal %></td>
-                </tr>
-              <% end %>
-             </tbody>
-            </table>
+
+            <%= button_to "全て削除", destroy_all_public_cart_items_path, method: :delete %>

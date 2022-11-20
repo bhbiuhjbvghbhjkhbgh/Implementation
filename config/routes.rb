@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :customers, controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
-}
+ }
   devise_for :admins
 
 
@@ -37,7 +37,12 @@ Rails.application.routes.draw do
     resources :orders
   end
   namespace :public do
-    resources :cart_items
+    resources :cart_items do
+      collection do
+        delete 'destroy_all'
+      end
+    end
+
   end
   namespace :public do
     resources :customers
@@ -49,6 +54,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :items
   end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'public/homes#top'
 end
