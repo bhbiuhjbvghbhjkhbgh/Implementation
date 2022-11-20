@@ -41,7 +41,7 @@
                           <%= f.subtotal %>
                         </td>
                         <td>
-                          <%= link_to 'キャンセル', public_cart_items_path(f), method: :delete %>
+                          <%= link_to 'キャンセル', public_cart_item_path(f), method: :delete %>
                         </td>
                     </tr>
                   <% end %>
@@ -56,3 +56,5 @@
             </table>
 
             <%= button_to "全て削除", destroy_all_public_cart_items_path, method: :delete %>
+
+            <%= button_to "注文情報入力に進む", new_public_order_path, method: :get %>
