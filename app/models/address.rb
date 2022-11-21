@@ -2,6 +2,6 @@ class Address < ApplicationRecord
   belongs_to :customer
 
   def address_display
-    '〒' + postal_code + ' ' + address + ' ' + last_name
+    '〒' + postal_code + ' ' + address
   end
 end

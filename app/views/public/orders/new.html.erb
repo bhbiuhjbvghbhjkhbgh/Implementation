@@ -6,5 +6,7 @@
     <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
 
+    <%= f.radio_button :address, current_customer.address %>
+
     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, current_customer) %>
 <% end %>
