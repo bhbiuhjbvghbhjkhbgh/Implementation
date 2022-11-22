@@ -5,8 +5,10 @@
 
     <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
+    <h6>住所</h6>
 
-    <%= f.radio_button :address, current_customer.address %>
-
+    <%= f.radio_button :address, current_customer.postal_code + current_customer.address %>
+    <%= f.label :address, current_customer.postal_code + " " + current_customer.address %>
+    <h6>登録済み住所</h6>
     <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, current_customer) %>
 <% end %>
