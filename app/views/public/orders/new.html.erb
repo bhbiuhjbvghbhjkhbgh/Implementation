@@ -1,14 +1,21 @@
 <%= form_with model: @order, url: public_orders_path, method: :post do |f| %>
-  <h6>支払方法</h6>
+  <h4>支払方法</h4>
     <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
 
     <%= f.radio_button :payment_method, Order.payment_methods.key(1) %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:transfer]%>
-    <h6>住所</h6>
+    <h4>住所</h4>
 
     <%= f.radio_button :address, current_customer.postal_code + current_customer.address %>
     <%= f.label :address, current_customer.postal_code + " " + current_customer.address %>
-    <h6>登録済み住所</h6>
-    <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, current_customer) %>
+    <h4>登録済み住所</h4>
+    <%= f.select :customer_id, options_from_collection_for_select(current_customer.addresses, :id, :address_display) %>
+    <h4>新規登録</h4>
+    <%= f.radio_button :address, current_customer.postal_code + current_customer.address %>
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address %>
+    <%= f.label :address_name, "宛名" %>
+    <%= f.text_field :address_name %>
+    <%= f.submit "確認画面へ進む" %>
 <% end %>

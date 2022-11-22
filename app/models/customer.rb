@@ -10,4 +10,8 @@ class Customer < ApplicationRecord
           has_many :items, through: :cart_items
 
 
+  def address_display
+      postal_code + address
+  end
+
 end
