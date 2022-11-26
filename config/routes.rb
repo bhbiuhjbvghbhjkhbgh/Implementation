@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'public/customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
   patch 'public/customers/:id/withdraw' => 'public/customers#withdraw', as: 'withdraw'
   post 'public/orders/confirm' => 'public/orders#confirm', as: 'confirm'
+  get 'public/orders/complete' => 'public/orders#complete', as: 'complete'
 
 
    resources :admins
