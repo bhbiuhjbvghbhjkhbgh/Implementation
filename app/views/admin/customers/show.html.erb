@@ -1,37 +1,14 @@
 <h1>顧客詳細情報</h1>
-<table class = "table table-hover">
+<table class = "table table-hover table-inverse">
   <thead>
      <tr>
-      <th>
-        性
-      </th>
-    </tr>
-    <tr>
-      <th>
-        名
-      </th>
-    </tr>
-    <tr>
-      <th>
-        性カナ
-      </th>
-    </tr>
-    <tr>
-      <th>
-        名カナ
-      </th>
-    </tr>
-    <tr>
+     <th>名前</th>
       <th>
         郵便番号
       </th>
-    </tr>
-    <tr>
       <th>
         住所
       </th>
-    </tr>
-    <tr>
       <th>
         携帯番号
       </th>
@@ -39,39 +16,18 @@
   </thead>
   <tbody>
     <tr>
-      <div class = "d-flex align-items-center justify-content-center">
-        <%= @customer.last_name %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
-        <%= @customer.first_name %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
-        <%= @customer.last_name_kana %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
-        <%= @customer.first_name_kana %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
+      <td>
+        <%= @customer.last_name + @customer.first_name %>
+      </td>
+      <td>
         <%= @customer.postal_code %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
+      </td>
+      <td>
         <%= @customer.address %>
-      </div>
-    </tr>
-    <tr>
-      <div class = "d-flex align-items-center justify-content-center">
+      </td>
+      <td>
         <%= @customer.telephone_number %>
-      </div>
+      </td>
     </tr>
   </tbody>
 </table>

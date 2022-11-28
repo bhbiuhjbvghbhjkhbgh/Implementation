@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
-  devise_for :customers, controllers: {
+  devise_for :customers, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
  }
-  devise_for :admins
-
-
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
 
   get 'public/customers/:id/unsubscribe' => 'public/customers#unsubscribe', as: 'unsubscribe'
   patch 'public/customers/:id/withdraw' => 'public/customers#withdraw', as: 'withdraw'
   post 'public/orders/confirm' => 'public/orders#confirm', as: 'confirm'
   get 'public/orders/complete' => 'public/orders#complete', as: 'complete'
+  patch 'public/cart_items/:id' => 'public/cart_items#update'
 
 
-   resources :admins
+  # resources :admin
    namespace :admin do
     resources :items
    end
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
      resources :genres
    end
    namespace :admin do
-     get '/' => 'homes#top'
+     get '/' => 'homes#top', as: 'admin_home'
    end
   namespace :public do
     get '/' => 'homes#top'
