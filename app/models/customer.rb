@@ -14,4 +14,8 @@ class Customer < ApplicationRecord
       postal_code + address
   end
 
+  #def active_for_authentication?
+    #super && (is_deleted == false)
+  #end
+
 end

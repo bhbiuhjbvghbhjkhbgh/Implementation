@@ -12,6 +12,7 @@
       <th>
         携帯番号
       </th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +28,15 @@
       </td>
       <td>
         <%= @customer.telephone_number %>
+      </td>
+      <td>
+        <div class = "d-flex align-items-center justify-content-center">
+          <% if @customer.is_deleted == false %>
+            <%= "有効" %>
+          <% else %>
+            <%= "退会済み" %>
+          <% end %>
+        </div>
       </td>
     </tr>
   </tbody>

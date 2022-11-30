@@ -6,6 +6,7 @@
       <th>郵便番号</th>
       <th>住所</th>
       <th>携帯番号</th>
+      <th>ステータス</th>
     </tr>
   </thead>
   <tbody>
@@ -33,6 +34,15 @@
       <td>
         <div class = "d-flex align-items-center justify-content-center">
           <%= f.telephone_number %>
+        </div>
+      </td>
+      <td>
+        <div class = "d-flex align-items-center justify-content-center">
+          <% if f.is_deleted == false %>
+            <%= "有効" %>
+          <% else %>
+            <%= "退会済み" %>
+          <% end %>
         </div>
       </td>
     </tr>
